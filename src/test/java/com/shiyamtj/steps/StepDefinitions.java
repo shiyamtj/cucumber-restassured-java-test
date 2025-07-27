@@ -4,6 +4,31 @@ import static org.hamcrest.Matchers.*;
 import io.cucumber.java.en.*;
 
 public class StepDefinitions {
+  @Given("I set path param {string} to {string}")
+  public void i_set_path_param(String name, String value) {
+    apiHelper.setPathParam(name, value);
+  }
+
+  @Given("I set query param {string} to {string}")
+  public void i_set_query_param(String name, String value) {
+    apiHelper.setQueryParam(name, value);
+  }
+
+  @Given("I set header {string} to {string}")
+  public void i_set_header(String name, String value) {
+    apiHelper.setHeader(name, value);
+  }
+
+  @Given("I set param {string} to {string}")
+  public void i_set_param(String name, String value) {
+    apiHelper.setParam(name, value);
+  }
+
+  @Given("I set body to:")
+  public void i_set_body(String body) {
+    apiHelper.setBody(body);
+  }
+
   private final ApiRequestHelper apiHelper = new ApiRequestHelper();
 
   @Given("the API is available")

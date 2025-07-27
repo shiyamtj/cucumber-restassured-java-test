@@ -12,6 +12,26 @@ import java.io.PrintStream;
 import java.io.FileOutputStream;
 
 public class ApiRequestHelper {
+  public void setPathParam(String name, String value) {
+    requestSpec.pathParam(name, value);
+  }
+
+  public void setQueryParam(String name, String value) {
+    requestSpec.queryParam(name, value);
+  }
+
+  public void setHeader(String name, String value) {
+    requestSpec.header(name, value);
+  }
+
+  public void setParam(String name, String value) {
+    requestSpec.param(name, value);
+  }
+
+  public void setBody(String body) {
+    requestSpec.body(body);
+  }
+
   private static PrintStream logStream;
   static {
     try {
@@ -21,7 +41,6 @@ public class ApiRequestHelper {
     }
   }
 
-  private String lastHeaderLog = "";
   private static final String BASE_URI = loadBaseUri();
   private Response lastResponse;
   private RequestSpecification requestSpec = given()
@@ -49,19 +68,6 @@ public class ApiRequestHelper {
     }
   }
 
-  public void setHeader(String name, String value) {
-    requestSpec.header(name, value);
-    if (lastHeaderLog.isEmpty()) {
-      lastHeaderLog = name + ": " + value;
-    } else {
-      lastHeaderLog += ", " + name + ": " + value;
-    }
-  }
-
-  public void setBody(String body) {
-    requestSpec.body(body);
-  }
-
   public Response sendRequest(String method, String resourcePath) {
     switch (method.toUpperCase()) {
       case "GET":
@@ -87,7 +93,6 @@ public class ApiRequestHelper {
         .baseUri(BASE_URI)
         .filter(new RequestLoggingFilter(logStream))
         .filter(new ResponseLoggingFilter(logStream));
-    lastHeaderLog = "";
     return lastResponse;
   }
 
