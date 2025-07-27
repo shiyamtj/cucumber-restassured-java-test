@@ -1,0 +1,35 @@
+# Java/Maven
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Maven
+.mvn/
+
+# Cucumber/Reports
+cucumber-report.html
+cucumber-report.json
+
+# Misc
+*.swp
