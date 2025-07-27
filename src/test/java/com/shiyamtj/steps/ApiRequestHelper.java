@@ -24,10 +24,6 @@ public class ApiRequestHelper {
     requestSpec.header(name, value);
   }
 
-  public void setParam(String name, String value) {
-    requestSpec.param(name, value);
-  }
-
   public void setBody(String body) {
     requestSpec.body(body);
   }

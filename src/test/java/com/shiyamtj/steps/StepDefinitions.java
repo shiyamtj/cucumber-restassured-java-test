@@ -19,11 +19,6 @@ public class StepDefinitions {
     apiHelper.setHeader(name, value);
   }
 
-  @Given("I set param {string} to {string}")
-  public void i_set_param(String name, String value) {
-    apiHelper.setParam(name, value);
-  }
-
   @Given("I set body to:")
   public void i_set_body(String body) {
     apiHelper.setBody(body);
